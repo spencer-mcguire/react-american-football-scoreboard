@@ -1,8 +1,9 @@
 import React, {useState, useEffect} from 'react';
+import "./App.css";
 
 const Timer = () => {
-    const [mins, setMins] = useState(15)
-    const [seconds, setSeconds] = useState(60);
+    const [mins, setMins] = useState(14)
+    const [seconds, setSeconds] = useState(59);
     const [isActive, setIsActive] = useState(false);
 
     function toggle() {
@@ -10,7 +11,7 @@ const Timer = () => {
     }
 
     function reset() {
-        setSeconds(60)
+        setSeconds(59)
         setIsActive(false)
     }
 
@@ -20,14 +21,34 @@ const Timer = () => {
             interval = setInterval(() => {
                 setSeconds(seconds => seconds - 1);
             }, 1000);
-        } else if (!isActive && seconds !== 0){
+        } 
+        if (seconds === -1){
+            setSeconds(59)
+        }
+        else if (!isActive && seconds !== 0){
             clearInterval(interval);
         }
         return () => clearInterval(interval);
     }, [isActive, seconds]);
 
+    useEffect(() => {
+        let interval = null;
+        if(isActive) {
+            interval = setInterval(() => {
+                setMins(mins => mins - 1);
+            }, 59200);
+        } 
+        if (mins === 0){
+            setMins(14)
+        }
+        else if (!isActive && mins !== 0){
+            clearInterval(interval);
+        }
+        return () => clearInterval(interval);
+    }, [isActive, mins]);
+
     return (
-        <div className="app">
+        <div className="timer">
         <div className="time">
           {mins}:{seconds}s
         </div>
