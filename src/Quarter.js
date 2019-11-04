@@ -5,7 +5,7 @@ const Quarter = () => {
     const [quarter, setQuarter] = useState(1)
 
     let game = () => {
-      if(quarter > 3){
+      if(quarter === 4){
         setQuarter(1)
       } else {
         setQuarter(quarter + 1)
