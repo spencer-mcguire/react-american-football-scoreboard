@@ -3,20 +3,19 @@ import "./App.css";
 
 const Quarter = () => {
     const [quarter, setQuarter] = useState(1)
-    let count = 1;
-    let game = (quarter) => {
-      if(count < 4){
-        return count = count + 1
+
+    let game = () => {
+      if(quarter > 3){
+        setQuarter(1)
       } else {
-        return count = 1
+        setQuarter(quarter + 1)
       }
     }
-    console.log(game(4))
     return (
         <div className="quarter">
         <h3 className="quarter__title">Quarter</h3>
         <div className="quarter__value">{quarter}</div>
-        <button onClick = {() => setQuarter(game())}> test</button>
+        <button onClick={game}>Quarter</button>
       </div>
     );
 }

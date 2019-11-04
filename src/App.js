@@ -40,9 +40,6 @@ const [countAway, setCountAway] = useState(0)
           <button onClick={() => setCountAway(countAway + 3)}className="awayButtons__fieldGoal">Away Field Goal</button>
           <button onClick={() => setCountAway(0)} className="homeButtons__touchdown">Reset Away</button>
         </div>
-        <div>
-          <button>Quarter</button>
-        </div>
       </section>
     </div>
   );
