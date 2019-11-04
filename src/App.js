@@ -19,7 +19,7 @@ const [countAway, setCountAway] = useState(0)
 
             <div className="home__score">{countHome}</div>
           </div>
-          <div className="timer">00:03</div>
+          <div className="timer"></div>
           <div className="away">
             <h2 className="away__name">Tigers</h2>
             <div className="away__score">{countAway}</div>
@@ -32,10 +32,12 @@ const [countAway, setCountAway] = useState(0)
           {/* TODO STEP 4 - Now we need to attach our state setter functions to click listeners. */}
           <button onClick={() => setCountHome(countHome + 7)}className="homeButtons__touchdown">Home Touchdown</button>
           <button onClick={() => setCountHome(countHome + 3)}className="homeButtons__fieldGoal">Home Field Goal</button>
+          <button onClick={() => setCountHome(0)} className="homeButtons__touchdown">Reset Home</button>
         </div>
         <div className="awayButtons">
           <button onClick={() => setCountAway(countAway + 7)}className="awayButtons__touchdown">Away Touchdown</button>
           <button onClick={() => setCountAway(countAway + 3)}className="awayButtons__fieldGoal">Away Field Goal</button>
+          <button onClick={() => setCountAway(0)} className="homeButtons__touchdown">Reset Away</button>
         </div>
       </section>
     </div>
